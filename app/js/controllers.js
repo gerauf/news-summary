@@ -1,7 +1,9 @@
 angular.module("newsSummaryApp")
-  .controller("NewsSummaryController", ["NewsItemFactory", function(NewsItemFactory) {
+  .controller("NewsSummaryController", ["NewsService", function(NewsService) {
     var self = this;
 
-    self.newsItems = [new NewsItemFactory("new story","www.somewhere.com")];
+    NewsService.getStories().then(function(newsItems){
+      self.newsItems = newsItems;
+    });
 
   }]);

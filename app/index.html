@@ -15,11 +15,17 @@
     <div ng-controller="NewsSummaryController as newsList">
       <ul>
         <li class="newsItem" ng-repeat="newsItem in newsList.newsItems">
-          <p>{{newsItem.title}}</p>
-          <p>{{newsItem.url}}</p>
+          <a href="{{newsItem.url}}">{{newsItem.title}}</a>
+          <p>
+            <img src="{{newsItem.imageLink}}" alt="no image" />
+          </p>
+          <ul>
+            <li class="summary" ng-repeat="summary in newsItem.summaries">
+              <p>{{summary}}</p>
+            </li>
+          </ul>
         </li>
       </ul>
-      <p>{{controller.greeting}}</p>
     </div>
   </body>
 </html>
